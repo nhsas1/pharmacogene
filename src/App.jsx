@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, Outlet, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import { ErrorState, LoadingState } from './components/Primitives';
 import { emptyDataset, loadDataset } from './lib/api';
@@ -37,13 +37,13 @@ function DatasetProvider({ children }) {
   return <DatasetContext.Provider value={value}>{children}</DatasetContext.Provider>;
 }
 
-function RouteGate({ children }) {
+function RouteGate() {
   const { status, error, refresh } = useDataset();
   const location = useLocation();
-  if (location.pathname === '/admin/login') return children;
+  if (location.pathname === '/admin/login') return <Outlet />;
   if (status === 'loading') return <LoadingState />;
   if (status === 'error') return <ErrorState message={error} onRetry={refresh} />;
-  return children;
+  return <Outlet />;
 }
 
 export default function App() {
