@@ -1,0 +1,15 @@
+{
+  "routes": [
+    { "path": "/", "title": "Dashboard" },
+    { "path": "/drugs", "title": "Drug Explorer" },
+    { "path": "/drugs/:id", "title": "Drug detail" },
+    { "path": "/genes", "title": "Gene Explorer" },
+    { "path": "/genes/:id", "title": "Gene detail" },
+    { "path": "/interactions", "title": "Drug–Gene Interactions" },
+    { "path": "/interactions/:id", "title": "Interaction detail" },
+    { "path": "/references", "title": "Scientific References" },
+    { "path": "/references/:id", "title": "Reference detail" },
+    { "path": "/admin/login", "title": "Admin Login" },
+    { "path": "/admin", "title": "Administration" }
+  ]
+}
